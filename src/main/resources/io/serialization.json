@@ -1,0 +1,478 @@
+{
+  "ordersManagerDTO" : {
+    "orders" : [ {
+      "id" : 1,
+      "clientName" : "Никита Уваров",
+      "status" : "NEW",
+      "books" : {
+        "6" : 1
+      },
+      "price" : 9.5,
+      "orderDate" : "2025-01-08",
+      "completeDate" : null
+    }, {
+      "id" : 2,
+      "clientName" : "Михаил Петров",
+      "status" : "COMPLETED",
+      "books" : {
+        "2" : 3,
+        "5" : 1
+      },
+      "price" : 1800.0,
+      "orderDate" : "2024-05-03",
+      "completeDate" : "2024-05-08"
+    }, {
+      "id" : 3,
+      "clientName" : "Анна Сидорова",
+      "status" : "CANCELED",
+      "books" : {
+        "4" : 1,
+        "7" : 2
+      },
+      "price" : 1200.0,
+      "orderDate" : "2024-05-05",
+      "completeDate" : null
+    }, {
+      "id" : 4,
+      "clientName" : "Иван Кузнецов",
+      "status" : "NEW",
+      "books" : {
+        "1" : 1,
+        "2" : 1,
+        "3" : 2,
+        "4" : 3
+      },
+      "price" : 3375.0,
+      "orderDate" : "2024-05-07",
+      "completeDate" : null
+    }, {
+      "id" : 5,
+      "clientName" : "Ольга Смирнова",
+      "status" : "COMPLETED",
+      "books" : {
+        "6" : 1,
+        "8" : 2
+      },
+      "price" : 2125.0,
+      "orderDate" : "2024-05-09",
+      "completeDate" : "2024-05-12"
+    }, {
+      "id" : 6,
+      "clientName" : "Дмитрий Морозов",
+      "status" : "CANCELED",
+      "books" : {
+        "5" : 1,
+        "6" : 2,
+        "7" : 1
+      },
+      "price" : 2575.0,
+      "orderDate" : "2024-05-11",
+      "completeDate" : null
+    }, {
+      "id" : 7,
+      "clientName" : "Елена Васильева",
+      "status" : "COMPLETED",
+      "books" : {
+        "1" : 1,
+        "3" : 1,
+        "5" : 1,
+        "6" : 1,
+        "9" : 2
+      },
+      "price" : 4100.0,
+      "orderDate" : "2024-05-13",
+      "completeDate" : "2024-05-16"
+    }, {
+      "id" : 8,
+      "clientName" : "Сергей Лебедев",
+      "status" : "CANCELED",
+      "books" : {
+        "9" : 3,
+        "10" : 2
+      },
+      "price" : 1100.0,
+      "orderDate" : "2024-05-15",
+      "completeDate" : null
+    }, {
+      "id" : 9,
+      "clientName" : "Наталья Попова",
+      "status" : "COMPLETED",
+      "books" : {
+        "3" : 1
+      },
+      "price" : 925.0,
+      "orderDate" : "2024-05-17",
+      "completeDate" : "2024-12-25"
+    }, {
+      "id" : 10,
+      "clientName" : "Алексей Новиков",
+      "status" : "COMPLETED",
+      "books" : {
+        "1" : 1,
+        "2" : 2,
+        "3" : 3,
+        "4" : 2
+      },
+      "price" : 3750.0,
+      "orderDate" : "2024-05-19",
+      "completeDate" : "2024-05-22"
+    }, {
+      "id" : 11,
+      "clientName" : "Мария Соколова",
+      "status" : "COMPLETED",
+      "books" : {
+        "5" : 1,
+        "6" : 1
+      },
+      "price" : 1200.0,
+      "orderDate" : "2024-05-21",
+      "completeDate" : "2024-12-25"
+    }, {
+      "id" : 12,
+      "clientName" : "Андрей Волков",
+      "status" : "COMPLETED",
+      "books" : {
+        "1" : 1,
+        "4" : 2,
+        "5" : 1
+      },
+      "price" : 2775.0,
+      "orderDate" : "2024-05-23",
+      "completeDate" : null
+    }, {
+      "id" : 13,
+      "clientName" : "Юлия Зайцева",
+      "status" : "COMPLETED",
+      "books" : {
+        "2" : 2,
+        "3" : 1,
+        "6" : 1,
+        "7" : 1,
+        "8" : 1
+      },
+      "price" : 3025.0,
+      "orderDate" : "2024-05-25",
+      "completeDate" : "2024-05-29"
+    }, {
+      "id" : 14,
+      "clientName" : "Александр Смирнов",
+      "status" : "NEW",
+      "books" : {
+        "17" : 10
+      },
+      "price" : 25.5,
+      "orderDate" : "2025-01-08",
+      "completeDate" : null
+    }, {
+      "id" : 15,
+      "clientName" : "Дмитрий Маликов",
+      "status" : "COMPLETED",
+      "books" : {
+        "1" : 1,
+        "23" : 1
+      },
+      "price" : 26.2,
+      "orderDate" : "2025-01-09",
+      "completeDate" : "2025-01-09"
+    } ],
+    "requests" : [ {
+      "id" : 1,
+      "bookId" : 6,
+      "amount" : 1,
+      "status" : "OPEN"
+    }, {
+      "id" : 2,
+      "bookId" : 2,
+      "amount" : 3,
+      "status" : "OPEN"
+    }, {
+      "id" : 3,
+      "bookId" : 7,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 4,
+      "bookId" : 4,
+      "amount" : 3,
+      "status" : "OPEN"
+    }, {
+      "id" : 5,
+      "bookId" : 8,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 6,
+      "bookId" : 7,
+      "amount" : 1,
+      "status" : "CLOSED"
+    }, {
+      "id" : 7,
+      "bookId" : 9,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 8,
+      "bookId" : 9,
+      "amount" : 3,
+      "status" : "OPEN"
+    }, {
+      "id" : 9,
+      "bookId" : 10,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 10,
+      "bookId" : 2,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 11,
+      "bookId" : 3,
+      "amount" : 3,
+      "status" : "OPEN"
+    }, {
+      "id" : 12,
+      "bookId" : 4,
+      "amount" : 2,
+      "status" : "CLOSED"
+    }, {
+      "id" : 13,
+      "bookId" : 4,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 14,
+      "bookId" : 5,
+      "amount" : 1,
+      "status" : "CLOSED"
+    }, {
+      "id" : 15,
+      "bookId" : 2,
+      "amount" : 2,
+      "status" : "OPEN"
+    }, {
+      "id" : 16,
+      "bookId" : 7,
+      "amount" : 1,
+      "status" : "OPEN"
+    }, {
+      "id" : 17,
+      "bookId" : 8,
+      "amount" : 1,
+      "status" : "OPEN"
+    }, {
+      "id" : 25,
+      "bookId" : 5,
+      "amount" : 6,
+      "status" : "OPEN"
+    }, {
+      "id" : 26,
+      "bookId" : 17,
+      "amount" : 10,
+      "status" : "OPEN"
+    } ]
+  },
+  "libraryManagerDTO" : {
+    "books" : [ {
+      "id" : 1,
+      "name" : "Анна Каренина",
+      "author" : "Л.Н.Толстой",
+      "price" : 1150.0,
+      "publicationDate" : 1884,
+      "amount" : 5,
+      "lastDeliveredDate" : "2025-01-09",
+      "lastSaleDate" : "2025-01-09",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 2,
+      "name" : "Капитанская дочка",
+      "author" : "А.С.Пушкин",
+      "price" : 200.0,
+      "publicationDate" : 1836,
+      "amount" : 3,
+      "lastDeliveredDate" : "2025-01-09",
+      "lastSaleDate" : "2024-03-19",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 3,
+      "name" : "Дубровский",
+      "author" : "А.С.Пушкин",
+      "price" : 450.0,
+      "publicationDate" : 1833,
+      "amount" : 0,
+      "lastDeliveredDate" : "2024-10-20",
+      "lastSaleDate" : "2025-01-08",
+      "status" : "NOT_AVAILABLE"
+    }, {
+      "id" : 4,
+      "name" : "Пиковая дама",
+      "author" : "А.С.Пушкин",
+      "price" : 975.0,
+      "publicationDate" : 1833,
+      "amount" : 1,
+      "lastDeliveredDate" : "2024-04-05",
+      "lastSaleDate" : "2024-02-23",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 5,
+      "name" : "Обломов",
+      "author" : "Иван Гончаров",
+      "price" : 12.0,
+      "publicationDate" : 1859,
+      "amount" : 3,
+      "lastDeliveredDate" : "2025-01-08",
+      "lastSaleDate" : "2023-12-10",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 6,
+      "name" : "Детство",
+      "author" : "Лев Толстой",
+      "price" : 9.5,
+      "publicationDate" : 1852,
+      "amount" : 0,
+      "lastDeliveredDate" : "2023-10-25",
+      "lastSaleDate" : null,
+      "status" : "NOT_AVAILABLE"
+    }, {
+      "id" : 7,
+      "name" : "Муму",
+      "author" : "Иван Тургенев",
+      "price" : 8.0,
+      "publicationDate" : 1854,
+      "amount" : 4,
+      "lastDeliveredDate" : "2023-11-20",
+      "lastSaleDate" : "2023-12-01",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 8,
+      "name" : "Отцы и дети",
+      "author" : "Иван Тургенев",
+      "price" : 11.5,
+      "publicationDate" : 1862,
+      "amount" : 9,
+      "lastDeliveredDate" : "2024-01-15",
+      "lastSaleDate" : "2023-12-01",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 9,
+      "name" : "Мёртвые души",
+      "author" : "Н.В.Гоголь",
+      "price" : 350.0,
+      "publicationDate" : 1842,
+      "amount" : 0,
+      "lastDeliveredDate" : "2024-01-11",
+      "lastSaleDate" : null,
+      "status" : "NOT_AVAILABLE"
+    }, {
+      "id" : 10,
+      "name" : "Ревизор",
+      "author" : "Н.В.Гоголь",
+      "price" : 875.0,
+      "publicationDate" : 1835,
+      "amount" : 3,
+      "lastDeliveredDate" : "2025-01-08",
+      "lastSaleDate" : null,
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 42,
+      "name" : "Sapiens. Краткая история человечества",
+      "author" : "Юваль Ной Харари",
+      "price" : 22.5,
+      "publicationDate" : 2011,
+      "amount" : 3,
+      "lastDeliveredDate" : "2023-12-20",
+      "lastSaleDate" : "2024-02-10",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 16,
+      "name" : "Черный лебедь",
+      "author" : "Нассим Николас Талеб",
+      "price" : 19.0,
+      "publicationDate" : 2007,
+      "amount" : 5,
+      "lastDeliveredDate" : "2024-01-05",
+      "lastSaleDate" : "2024-01-30",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 17,
+      "name" : "Эйнштейн. Его жизнь и Вселенная",
+      "author" : "Уолтер Айзексон",
+      "price" : 25.5,
+      "publicationDate" : 2007,
+      "amount" : 4,
+      "lastDeliveredDate" : "2025-01-08",
+      "lastSaleDate" : "2024-02-28",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 18,
+      "name" : "Искусственный интеллект. Этапы. Угрозы. Стратегии",
+      "author" : "Стюарт Рассел",
+      "price" : 32.0,
+      "publicationDate" : 2010,
+      "amount" : 8,
+      "lastDeliveredDate" : "2024-03-01",
+      "lastSaleDate" : null,
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 19,
+      "name" : "Думай медленно… Решай быстро",
+      "author" : "Даниэль Канеман",
+      "price" : 23.5,
+      "publicationDate" : 2011,
+      "amount" : 4,
+      "lastDeliveredDate" : "2023-12-01",
+      "lastSaleDate" : "2024-02-15",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 53,
+      "name" : "Космос",
+      "author" : "Карл Саган",
+      "price" : 27.0,
+      "publicationDate" : 1980,
+      "amount" : 0,
+      "lastDeliveredDate" : "2024-01-15",
+      "lastSaleDate" : null,
+      "status" : "NOT_AVAILABLE"
+    }, {
+      "id" : 22,
+      "name" : "Краткая история времени",
+      "author" : "Стивен Хокинг",
+      "price" : 15.99,
+      "publicationDate" : 1988,
+      "amount" : 5,
+      "lastDeliveredDate" : "2024-01-15",
+      "lastSaleDate" : "2025-01-08",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 23,
+      "name" : "Геном",
+      "author" : "Мэтт Ридли",
+      "price" : 21.2,
+      "publicationDate" : 1999,
+      "amount" : 9,
+      "lastDeliveredDate" : "2024-02-25",
+      "lastSaleDate" : "2025-01-09",
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 25,
+      "name" : "Физика невозможного",
+      "author" : "Митио Каку",
+      "price" : 29.0,
+      "publicationDate" : 2008,
+      "amount" : 4,
+      "lastDeliveredDate" : "2025-01-08",
+      "lastSaleDate" : null,
+      "status" : "AVAILABLE"
+    }, {
+      "id" : 31,
+      "name" : "Структура научных революций",
+      "author" : "Томас Кун",
+      "price" : 18.75,
+      "publicationDate" : 1962,
+      "amount" : 9,
+      "lastDeliveredDate" : "2025-01-09",
+      "lastSaleDate" : "2025-01-08",
+      "status" : "AVAILABLE"
+    } ]
+  }
+}
