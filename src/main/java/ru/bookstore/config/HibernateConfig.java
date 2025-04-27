@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 public class HibernateConfig {
+
   @Value("${db.url}")
   private String dbUrl;
 
@@ -33,6 +34,12 @@ public class HibernateConfig {
     config.setPassword(dbPassword);
     config.setDriverClassName("com.mysql.cj.jdbc.Driver");
     config.setMaximumPoolSize(5);
+    config.setConnectionTimeout(30000);
+    config.setInitializationFailTimeout(30000);
+    config.setLeakDetectionThreshold(5000);
+    config.addDataSourceProperty("cachePrepStmts", "true");
+    config.addDataSourceProperty("prepStmtCacheSize", "250");
+    config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
     return new HikariDataSource(config);
   }
 
@@ -44,8 +51,12 @@ public class HibernateConfig {
 
     Properties props = new Properties();
     props.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
-    props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "org.springframework.orm.hibernate5.SpringSessionContext"); // Важно!
+    props.put(Environment.SHOW_SQL, "true");
+    props.put(Environment.FORMAT_SQL, "true");
+    props.put(Environment.HBM2DDL_AUTO, "update");
+    props.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "org.springframework.orm.hibernate5.SpringSessionContext");
     props.put(Environment.ENABLE_LAZY_LOAD_NO_TRANS, "true");
+    props.put(Environment.AUTOCOMMIT, "false");
 
     factory.setHibernateProperties(props);
     return factory;
@@ -55,6 +66,7 @@ public class HibernateConfig {
   public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
     HibernateTransactionManager transactionManager = new HibernateTransactionManager();
     transactionManager.setSessionFactory(sessionFactory);
+    transactionManager.setNestedTransactionAllowed(true);
     return transactionManager;
   }
 }

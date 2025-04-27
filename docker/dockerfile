@@ -1,20 +1,13 @@
-FROM maven:3.9.9-sapmachine-21 AS build
-
-WORKDIR /4
-
+# Сборка
+FROM maven:3.9.9-eclipse-temurin-21 AS build
+WORKDIR /app
 COPY pom.xml .
 COPY src ./src
+RUN mvn clean package -DskipTests
 
-RUN mvn clean package
-
-FROM openjdk:21-oracle
-
-WORKDIR /
-
-COPY --from=build /4/target/4-1.0-SNAPSHOT-jar-with-dependencies.jar app.jar
-
-COPY --from=build /4/src ./4/src
-
+# Запуск
+FROM maven:3.9.9-eclipse-temurin-21
+WORKDIR /app
+COPY --from=build /app/target/bookstore-*.jar ./app.jar
 EXPOSE 8080
-
 ENTRYPOINT ["java", "-jar", "app.jar"]
