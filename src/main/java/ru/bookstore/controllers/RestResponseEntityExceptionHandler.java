@@ -1,6 +1,11 @@
 package ru.bookstore.controllers;
 
 import io.jsonwebtoken.JwtException;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import java.time.Instant;
@@ -20,7 +25,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
@@ -32,9 +36,30 @@ import ru.bookstore.exceptions.ImportException;
 
 @ControllerAdvice
 @Slf4j
+@Tag(name = "Обработка ошибок", description = "Глобальный обработчик исключений приложения")
 public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
 
   @ExceptionHandler(EntityNotFoundException.class)
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  @ApiResponse(
+      responseCode = "404",
+      description = "Сущность не найдена",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class),
+          examples = @ExampleObject(
+              value = """
+                {
+                    "title": "Сущность не найдена",
+                    "status": 404,
+                    "detail": "Книга с id 123 не найдена",
+                    "timestamp": "2023-05-20T12:34:56.789Z",
+                    "path": "/books/123"
+                }
+                """
+          )
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleEntityNotFoundException(EntityNotFoundException ex, WebRequest request) {
     log.error("Сущность не найдена: {}", ex.getMessage(), ex);
 
@@ -47,6 +72,15 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @ExceptionHandler(DataAccessException.class)
+  @ResponseStatus(HttpStatus.CONFLICT)
+  @ApiResponse(
+      responseCode = "409",
+      description = "Конфликт при доступе к данным",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class)
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleDataAccessException(DataAccessException ex, WebRequest request) {
     log.error("Ошибка доступа к данным: {}", ex.getMessage(), ex);
 
@@ -58,6 +92,15 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @ExceptionHandler(IllegalArgumentException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ApiResponse(
+      responseCode = "400",
+      description = "Некорректные входные параметры",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class)
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request) {
     log.error("Некорректный аргумент: {}", ex.getMessage(), ex);
 
@@ -69,6 +112,27 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @Override
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ApiResponse(
+      responseCode = "400",
+      description = "Ошибка валидации входных данных",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class),
+          examples = @ExampleObject(
+              value = """
+                {
+                    "title": "Ошибка валидации",
+                    "status": 400,
+                    "detail": "Ошибка валидации",
+                    "errors": {
+                        "email": "должно иметь формат адреса электронной почты"                    },
+                    "timestamp": "2023-05-20T12:34:56.789Z"
+                }
+                """
+          )
+      )
+  )
   protected ResponseEntity<Object> handleMethodArgumentNotValid(
       MethodArgumentNotValidException ex, HttpHeaders headers,
       HttpStatusCode status, WebRequest request) {
@@ -87,6 +151,15 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @ExceptionHandler(ImportException.class)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  @ApiResponse(
+      responseCode = "400",
+      description = "Ошибка импорта данных",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class)
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleImportException(ImportException ex, WebRequest request) {
     log.error("Ошибка импорта: {}", ex.getMessage(), ex);
 
@@ -98,6 +171,15 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @ExceptionHandler(ExportException.class)
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  @ApiResponse(
+      responseCode = "500",
+      description = "Ошибка экспорта данных",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class)
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleExportException(ExportException ex, WebRequest request) {
     log.error("Ошибка экспорта: {}", ex.getMessage(), ex);
 
@@ -109,6 +191,25 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @ExceptionHandler(Exception.class)
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  @ApiResponse(
+      responseCode = "500",
+      description = "Внутренняя ошибка сервера",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class),
+          examples = @ExampleObject(
+              value = """
+                {
+                    "title": "Внутренняя ошибка",
+                    "status": 500,
+                    "detail": "Внутренняя ошибка сервера",
+                    "timestamp": "2023-05-20T12:34:56.789Z"
+                }
+                """
+          )
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleGenericException(Exception ex, WebRequest request) {
     log.error("Непредвиденная ошибка: {}", ex.getMessage(), ex);
 
@@ -121,7 +222,25 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
   @ExceptionHandler(ConstraintViolationException.class)
   @ResponseStatus(HttpStatus.BAD_REQUEST)
-  @ResponseBody
+  @ApiResponse(
+      responseCode = "400",
+      description = "Нарушение ограничений валидации",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = Map.class),
+          examples = @ExampleObject(
+              value = """
+                {
+                    "timestamp": "2023-05-20T12:34:56.789Z",
+                    "status": 400,
+                    "error": "Bad Request",
+                    "message": "должно быть не null",
+                    "path": "/api/users"
+                }
+                """
+          )
+      )
+  )
   public Map<String, Object> handleConstraintViolationException(HttpServletRequest request, Exception ex) {
     Map<String, Object> errorResponse = new HashMap<>();
 
@@ -137,6 +256,15 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
   }
 
   @ExceptionHandler(AccessDeniedException.class)
+  @ResponseStatus(HttpStatus.FORBIDDEN)
+  @ApiResponse(
+      responseCode = "403",
+      description = "Доступ запрещен",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class)
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleAccessDeniedException(
       AccessDeniedException ex, WebRequest request) {
 
@@ -157,6 +285,26 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
       BadCredentialsException.class,
       InsufficientAuthenticationException.class
   })
+  @ResponseStatus(HttpStatus.UNAUTHORIZED)
+  @ApiResponse(
+      responseCode = "401",
+      description = "Ошибка аутентификации",
+      content = @Content(
+          mediaType = "application/json",
+          schema = @Schema(implementation = ProblemDetail.class),
+          examples = @ExampleObject(
+              value = """
+                {
+                    "title": "Ошибка аутентификации",
+                    "status": 401,
+                    "detail": "Требуется авторизация: Неверные учетные данные",
+                    "timestamp": "2023-05-20T12:34:56.789Z",
+                    "path": "/api/auth/login"
+                }
+                """
+          )
+      )
+  )
   protected ResponseEntity<ProblemDetail> handleAuthenticationException(
       RuntimeException ex, WebRequest request) {
 

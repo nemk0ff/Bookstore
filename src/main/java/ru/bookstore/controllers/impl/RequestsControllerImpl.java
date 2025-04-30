@@ -1,5 +1,6 @@
 package ru.bookstore.controllers.impl;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,7 @@ import ru.bookstore.sorting.RequestSort;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/requests")
+@Tag(name = "Контроллер запросов на книги", description = "API для управления запросами на книги")
 public class RequestsControllerImpl implements RequestsController {
   private final RequestFacade requestFacade;
   private final ImportController importController;
