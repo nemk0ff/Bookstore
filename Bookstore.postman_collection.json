@@ -1,0 +1,970 @@
+{
+	"info": {
+		"_postman_id": "c982b801-fe1a-4700-b166-1972294d22c5",
+		"name": "Bookstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43132443"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "books/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/addBook",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJST0xFX0FETUlOIiwiaWF0IjoxNzQzNTk4MTA2LCJleHAiOjE3NDM2MDE3MDZ9.qCwEGl2HyYhfgBtmz5H6TFaQMFDBaZZQsbfnhbpgb1s",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/books/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/writeOff",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/writeOff?id=7&amount=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"writeOff"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								},
+								{
+									"key": "amount",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/?sort=NAME",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books?sort=NAME",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "NAME"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/books?sort=PUBLICATION_DATE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books?sort=PUBLICATION_DATE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "PUBLICATION_DATE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books?sort=PRICE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books?sort=PRICE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "PRICE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books?sort=STATUS",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books?sort=STATUS",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "STATUS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/stale?sort=STALE_BY_DATE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/stale?sort=STALE_BY_DATE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"stale"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "STALE_BY_DATE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/stale?sort=STALE_BY_PRICE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/stale?sort=STALE_BY_PRICE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"stale"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "STALE_BY_PRICE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/import",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/import",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/export",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/export",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/export/14",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/export/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"export",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "books/import/15",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/books/import/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"import",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "orders",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"clientName\": \"Даниил Немков\",\r\n    \"books\": {\r\n        \"15\": 2,\r\n        \"2\": 3\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/20",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/20",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/cancelOrder/17",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/cancelOrder/17",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"cancelOrder",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/setOrderStatus?id=19&status=NEW",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/setOrderStatus?id=19&status=NEW",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"setOrderStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "19"
+								},
+								{
+									"key": "status",
+									"value": "NEW"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders?sort=COMPLETE_DATE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders?sort=COMPLETE_DATE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "COMPLETE_DATE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders?sort=PRICE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders?sort=PRICE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "PRICE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders?sort=STATUS",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders?sort=STATUS",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "STATUS"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/completed?sort=COMPLETED_BY_DATE&begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/completed?sort=COMPLETED_BY_DATE&begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"completed"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "COMPLETED_BY_DATE"
+								},
+								{
+									"key": "begin",
+									"value": "01.01.2023 12:00:00"
+								},
+								{
+									"key": "end",
+									"value": "31.12.2024 23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/completed?sort=COMPLETED_BY_PRICE&begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/completed?sort=COMPLETED_BY_PRICE&begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"completed"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "COMPLETED_BY_PRICE"
+								},
+								{
+									"key": "begin",
+									"value": "01.01.2023 12:00:00"
+								},
+								{
+									"key": "end",
+									"value": "31.12.2024 23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/countCompletedOrders?begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/countCompletedOrders?begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"countCompletedOrders"
+							],
+							"query": [
+								{
+									"key": "begin",
+									"value": "01.01.2023 12:00:00"
+								},
+								{
+									"key": "end",
+									"value": "31.12.2024 23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/earnedSum?begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/earnedSum?begin=01.01.2023 12:00:00&end=31.12.2024 23:59:59",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"earnedSum"
+							],
+							"query": [
+								{
+									"key": "begin",
+									"value": "01.01.2023 12:00:00"
+								},
+								{
+									"key": "end",
+									"value": "31.12.2024 23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/import",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/import",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/export",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/export",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/export/5",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/export/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"export",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders/import/7",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/orders/import/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"orders",
+								"import",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "requests",
+			"item": [
+				{
+					"name": "requests?bookId=16&amount=4",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests?bookId=16&amount=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "16"
+								},
+								{
+									"key": "amount",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests?sort=COUNT",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests?sort=COUNT",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "COUNT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests?sort=PRICE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests?sort=PRICE",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "PRICE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests/getAll",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests/getAll",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests",
+								"getAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests/export",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests/export",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests/export/43",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests/export/43",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests",
+								"export",
+								"43"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests/import",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests/import",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests",
+								"import"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "requests/import/20",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/requests/import/20",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"requests",
+								"import",
+								"20"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
