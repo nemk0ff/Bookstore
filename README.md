@@ -1,4 +1,4 @@
-# Книжный магазин
+![image](https://github.com/user-attachments/assets/d8a20927-ec21-4fe8-888c-ed93dd0d509a)# Книжный магазин
 Данный проект является доработанной версией проекта, разработанного в рамках учебного курса по Java-разработке от ООО "Сенла"
 
 Исходную версию вы можете найти [здесь](https://github.com/nemk0ff/SenlaCourse/tree/main/4)
@@ -55,7 +55,7 @@
 <a id="testing-instructions"></a>
 ### Тестирование API
 #### Через Swagger UI:
-- Откройте Swagger в браузере
+- Откройте Swagger в браузере по адресу http://localhost:8080/swagger-ui/index.html#/
 
 - Используйте встроенный интерфейс для отправки запросов
 
